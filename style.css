@@ -1,0 +1,206 @@
+/* =========================================================
+   Transit Door Display – Kiosk / Mobile Styles
+   Optimized for:
+   - Android Chrome / WebView
+   - Always-on door display
+   - High contrast & large text
+   ========================================================= */
+
+/* ---------- Theme variables ---------- */
+:root {
+  --bg: #0a0a0a;
+  --panel: #1a1a1a;
+  --panel-alt: #242424;
+  --text: #f5f5f5;
+  --muted: #b5b5b5;
+
+  --ok: #16a34a;
+  --warn: #f59e0b;
+  --err: #dc2626;
+
+  --badge-bg: #e5e5e5;
+  --badge-text: #111;
+}
+
+/* ---------- Reset / base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Page wrapper ---------- */
+.page {
+  min-height: 100%;
+  padding: 16px;
+}
+
+/* ---------- Main container ---------- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.h-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.h-meta {
+  font-size: 13px;
+  opacity: 0.85;
+  text-align: right;
+}
+
+/* ---------- Status pill ---------- */
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pill.ok {
+  background: var(--ok);
+}
+
+.pill.warn {
+  background: var(--warn);
+}
+
+.pill.err {
+  background: var(--err);
+}
+
+/* ---------- Departure rows ---------- */
+.row {
+  display: grid;
+  grid-template-columns: 80px 1fr 110px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 14px;
+}
+
+.row.hl {
+  background: #202020;
+}
+
+.row.nhl {
+  background: #151515;
+}
+
+/* ---------- Line badge ---------- */
+.badge {
+  display: inline-block;
+  min-width: 56px;
+  text-align: center;
+  border-radius: 12px;
+  padding: 6px 10px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* ---------- Destination ---------- */
+.dest {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Time / countdown ---------- */
+.time {
+  font-size: 22px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.time small {
+  display: block;
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* ---------- Panels / footer info ---------- */
+.panel {
+  background: var(--panel-alt);
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ---------- Empty / error states ---------- */
+.empty {
+  opacity: 0.8;
+  text-align: center;
+  padding: 24px;
+}
+
+.error {
+  background: rgba(127, 29, 29, 0.2);
+  border: 1px solid #b91c1c;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 420px) {
+  .row {
+    grid-template-columns: 66px 1fr 96px;
+  }
+
+  .badge {
+    min-width: 48px;
+    font-size: 20px;
+  }
+
+  .dest {
+    font-size: 18px;
+  }
+
+  .time {
+    font-size: 20px;
+  }
+}
