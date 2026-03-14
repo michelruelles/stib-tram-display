@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Transit Door Display</title>
+
+  <!-- Your local stylesheet -->
+  style.css
+
+  <!-- Optional: prevent zoom on double-tap (nice for kiosk use) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+  <div id="app" class="page"></div>
+
+  <script>
+    /**
+     * Ensure the kiosk loads with your preferred defaults (stopId + title)
+     * by injecting URL params if they’re missing.
+     *
+     * This avoids needing to edit app.js when you just want to change the stop.
+     */
+   (function () {
+      var params = new URLSearchParams(window.location.search);
+
+      // Lock default stop id and title (only if not already provided)
+      if (!params.has("stopId")) params.set("stopId", "6805F");
+      if (!params.has("title")) params.set("title", "Kraainem – 6805F");
+
+      // Optional defaults
+      if (!params.has("refresh")) params.set("refresh", "20");
+      if (!params.has("maxRows")) params.set("maxRows", "6");
+
+      // If we changed anything, reload with the updated query string
+      var desired = "?" + params.toString();
+      if (window.location.search !== desired) {
+        window.location.replace(window.location.pathname + desired);
+      }
+    })();
+  </script>
+
+  <!-- Your local bundled app logic -->
+  app.js</script>
+</body>
+</html>
