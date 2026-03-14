@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIB Tram Departure Display</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        .departure { margin: 20px; padding: 20px; border: 2px solid #333; border-radius: 8px; background-color: white; }
+        h1 { color: #333; }
+        .time { font-size: 2em; color: #e67e22; }
+    </style>
+</head>
+<body>
+    <div class="departure">
+        <h1>STIB Tram Departure Display</h1>
+        <div class="time" id="current-time">Loading...</div>
+        <script>
+            function updateTime() {
+                const now = new Date();
+                const formattedTime = now.toISOString().slice(0, 19).replace('T', ' ');
+                document.getElementById('current-time').textContent = formattedTime;
+            }
+            setInterval(updateTime, 1000);
+            updateTime();
+        </script>
+    </div>
+</body>
+</html>
